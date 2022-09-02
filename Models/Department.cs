@@ -6,7 +6,7 @@ using System.Security.Policy;
 
 namespace CodeFirst.Models
 {
-    public class Department
+    public class Department 
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

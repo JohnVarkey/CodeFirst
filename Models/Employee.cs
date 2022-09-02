@@ -16,6 +16,7 @@ namespace CodeFirst.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfJoining { get; set; }
+        public string EmailId { get; set; }
 
         public virtual Location Location { get; set; }
         public virtual Department Department { get; set; }

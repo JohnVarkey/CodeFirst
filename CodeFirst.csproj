@@ -62,6 +62,10 @@
     <Compile Include="Migrations\202209021318280_Initial.designer.cs">
       <DependentUpon>202209021318280_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209021438210_AddedEmail.cs" />
+    <Compile Include="Migrations\202209021438210_AddedEmail.designer.cs">
+      <DependentUpon>202209021438210_AddedEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -79,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209021318280_Initial.resx">
       <DependentUpon>202209021318280_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209021438210_AddedEmail.resx">
+      <DependentUpon>202209021438210_AddedEmail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

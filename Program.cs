@@ -69,28 +69,46 @@ namespace CodeFirst
             //    Department = context.Department.First(x => x.DepartmentName == "Engineering"),
             //});
 
-            //context.Employees.Add(new Employee
-            //{
-            //    FirstName = "Sanjay",
-            //    LastName = "Aliyan",
-            //    DateOfJoining = new DateTime(2022, 08, 26),
-            //    Location = context.Locations.First(x => x.LocationName == "Trivandrum"),
-            //    Department = context.Department.First(x => x.DepartmentName == "Support"),
-            //});
+            context.Employees.Add(new Employee
+            {
+                FirstName = "Banglore",
+                LastName = "Bro",
+                DateOfJoining = new DateTime(2022, 08, 26),
+                Location = context.Locations.First(x => x.LocationName == "Banglore"),
+                Department = context.Department.First(x => x.DepartmentName == "Engineering"),
+            });
+
 
 
             //context.SaveChanges();
 
-            //Query all employees who joined last week in Trivandrum location
+            Console.WriteLine("Query all employees who joined last week in Trivandrum location");
 
 
-     
-            var list = context.Employees
-                //.Where(x => DateTime.Compare((DateTime)DbFunctions.AddDays(x.DateOfJoining, 8), DateTime.Now) == 0)
-                .ToList();
+            context.Employees.
+               Where(x => DateTime.Compare(x.DateOfJoining, (DateTime)EntityFunctions.AddDays(DateTime.Now, -8)) >= 0
+                && x.Location.LocationName == "Trivandrum").ToList().ForEach(x => Console.WriteLine(x.FirstName));
 
-            list.ForEach(x => Console.WriteLine(x.DateOfJoining + " = " + x.DateOfJoining.AddDays(8) + " = "+ DateTime.Now+ " " + DateTime.Compare((DateTime)x.DateOfJoining.AddDays(8), DateTime.Now)));
+                
             Console.ReadLine();
+
+
+            Console.WriteLine("List of all the employees joined in last month");
+            context.Employees.
+               Where(x =>
+                    x.DateOfJoining.Month == 8
+                )
+               .ToList()
+               .ForEach(x => Console.WriteLine(x.FirstName));
+
+            Console.WriteLine("List of all the employees joined in last month in Bangalore location");
+            context.Employees.
+               Where(x =>
+                    x.DateOfJoining.Month == 8 && x.Location.LocationName == "Banglore"
+                )
+               .ToList()
+               .ForEach(x => Console.WriteLine(x.FirstName));
+
 
         }
     }
